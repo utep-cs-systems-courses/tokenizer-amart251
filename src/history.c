@@ -13,10 +13,10 @@ typedef struct s_List {
 } List;
 
 /* Initialize the linked list to keep the history. */
-List* init_history();
+List* init_history()
 {
     List *list = (List*) malloc(sizeof(List));
-    list-> = NULL;
+    list-> root = NULL;
     return list;
 }
 
@@ -26,7 +26,7 @@ List* init_history();
 */
 void add_history(List *list, char *str){
     Item *newitem = (Item*) malloc(sizeof(Item));
-    newItem-> id = 0;
+    newItem->id = 0;
     newItem->str = strdup(str);
     newItem->next = NULL;
 
