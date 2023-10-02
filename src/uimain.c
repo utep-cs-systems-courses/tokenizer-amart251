@@ -7,7 +7,7 @@
 
 // Displays the main menu options
 
-void mainMenu()
+void displayMenu()
 {
     printf ("Welcome to Tokenizer\n");
     printf ("Tokenize a string\n");
@@ -27,15 +27,15 @@ void handleTokenization(char * user_input, List * history){
 }
 
 //Handles displaying token history
-void handleHistory(List * history){
+void handleHistory(List *history){
     printf("Tokens: \n");
     print_history(history);
 }
 
 int main ()
 {
-    char user_input [MAX];
-    List * history = init_history();
+    char user_input[MAX];
+    List *history = init_history();
 
     while (user_input[0] != '3'){
         displayMenu();
@@ -47,7 +47,7 @@ int main ()
                 handleTokenization(user_input, history);
                 break;
             case '2':
-                handleTokenization(history);
+                handleHistory(history);
                 break;
             case '3':
                 break;
