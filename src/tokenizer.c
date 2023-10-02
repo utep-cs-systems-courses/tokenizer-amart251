@@ -47,7 +47,10 @@ int count_tokens(char *str){
 /* Returns a fresly allocated new zero-terminated string 
    containing <len> chars from <inStr> */
 char *copy_str(char *inStr, short len){
-    return NULL;
+    char *outStr = malloc(len + 1);
+    strncpy(outStr, inStr, len);
+    outStr[len] = '\0';
+    return outStr;
 }
 
 /* Returns a freshly allocated zero-terminated vector of freshly allocated 
@@ -60,15 +63,31 @@ char *copy_str(char *inStr, short len){
      tokens[3] = 0
 */
 char **tokenize(char* str){
-    return NULL;
+    int num_tokens = count_tokens(str);
+    char **tokens = malloc((num_tokens + 1) * sizeof(char *));
+    char *token = token_start(str);
+    for (int i = 0; i < num_tokens; i++){
+        char * term = token_terminator(token);
+        int len = term - token;
+        tokens[i] = copy_str(token, len);
+        token = token_start(term);
+    }
+    tokens[num_tokens] = NULL;
+    return tokens;
 }
 
 /* Prints all tokens. */
 void print_tokens(char **tokens){
-    return NULL;
+    for (int i = 0; tokens[i] != NULL; i++){
+        printf("%s\n", tokens[i]);
+    }
 }
 
 /* Frees all tokens and the vector containing themx. */
 void free_tokens(char **tokens){
-    return NULL;
+    for (int i = 0; tokens[i] != NULL; i++){
+        free(tokens[i]);
+    }
+    free(tokens);
 }
+
