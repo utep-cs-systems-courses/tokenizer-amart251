@@ -41,9 +41,22 @@ int main ()
         displayMenu();
         fgets(user_input, MAX, stdin); // get user input
 
-        //add switch cases here for user input
+        switch(user_input[0])
+        {
+            case '1':
+                handleTokenization(user_input, history);
+                break;
+            case '2':
+                handleTokenization(history);
+                break;
+            case '3':
+                break;
+            default:
+                printf("Invalid choice. Please select a valid option. \n");
+                break;
+        }
     }
-    free_history(history;
-    return 0)
+    free_history(history);
+    return 0;
 }
 
