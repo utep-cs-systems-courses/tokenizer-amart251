@@ -15,7 +15,7 @@ int non_space_char(char c){
 
 // Find the starting point of the next token in the string
 char *token_start(char *str){
-    while (str != '\0'){
+    while (*str != '\0'){
         if (non_space_char(*str)){
             return str;
         }
@@ -67,7 +67,7 @@ char **tokenize(char* str){
     char **tokens = malloc((num_tokens + 1) * sizeof(char *));
     char *token = token_start(str);
     for (int i = 0; i < num_tokens; i++){
-        char * term = token_terminator(token);
+        char *term = token_terminator(token);
         int len = term - token;
         tokens[i] = copy_str(token, len);
         token = token_start(term);
