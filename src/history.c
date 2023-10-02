@@ -26,19 +26,19 @@ List* init_history()
 */
 void add_history(List *list, char *str){
     Item *newitem = (Item*) malloc(sizeof(Item));
-    newItem->id = 0;
-    newItem->str = strdup(str);
-    newItem->next = NULL;
+    newitem->id = 0;
+    newitem->str = strdup(str);
+    newitem->next = NULL;
 
     if (list -> root ==NULL){
-        list -> root = newItem;
+        list -> root = newitem;
     }
     else{
         Item * current = list -> root;
         while (current -> next != NULL){
             current = current -> next;
         }
-        current ->next = newItem;
+        current ->next = newitem;
     }
 }
 
